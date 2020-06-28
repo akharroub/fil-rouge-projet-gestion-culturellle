@@ -1,0 +1,29 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/assets/app.png" id="icon" alt="User Icon" />
+      <h1>Bienvenue !</h1>
+      <h2><i>Connexion</i></h2>
+    </div>
+
+    <!-- Login Form -->
+    <form>
+      <input [(ngModel)]="user.username" type="text" id="login" class="fadeIn second" name="login" placeholder="Username">
+      <input [(ngModel)]="user.password" type="password" id="password" class="fadeIn third" name="login" placeholder="Password">
+      <input (click)="login()" type="submit" class="btn btn-secondary" value="Login">
+      
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a routerLink='/public/inscription' class="underlineHover" routerLinkActive=active><fa-icon class="icon p-2" [icon]="faCaretSquareRight" title="Annuler"></fa-icon>Inscription</a>
+    </div>
+
+  </div>
+</div>
+
+

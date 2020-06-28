@@ -1,0 +1,48 @@
+<div class="row justify-content-center align-items-center">
+
+    <div [hidden]="submitted" style="width: 400px;">
+        <form>
+            <br>
+            <h2>Ajouter une manifestation</h2>
+            <br>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-8">
+
+                        <label for="animation">Nom de l'animation :</label>
+                        <select name="animation" id="animation" [(ngModel)]="manifestation.animation.id"
+                            class="form-control">
+                            <option *ngFor="let animation of animations" [value]="animation.id">{{animation.label}}
+                            </option>
+                        </select>
+
+                        <div class="form-group">
+                            <label for="label">Nouveau label :</label>
+                            <input type="text" name="label" class="form-control" id="label"
+                                placeholder="Entrer votre label" [(ngModel)]="manifestation.label">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateValidation">Date de validation :</label>
+                            <input type="date" name="dateValidation" class="form-control" id="dateValidation"
+                                placeholder="Entrer la date de validation" [(ngModel)]="manifestation.dateValidation">
+                        </div>
+  
+                        <label for="validateur">Nom du validateur :</label>
+                        <input type="text" name="validateur" class="form-control" id="validateur"
+                            placeholder="{{manifestation.validateur.nom}}" readonly>
+                       
+                        <br>
+                        <a name="" id="" class="btn btn-secondary" href="#" role="button"
+                            [routerLink]="['/public/manifestation-list']"><fa-icon class="icon p-2" [icon]="faHome">Annuler</fa-icon></a>
+                        &nbsp;
+                        <button (click)="add()" class="btn btn-primary"
+                            [disabled]="manifestation.length==0">
+                            <fa-icon class="icon p-2" [icon]="faPlusSquare">Ajouter</fa-icon></button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

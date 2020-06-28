@@ -1,0 +1,81 @@
+<div class="row justify-content-center align-items-center">
+
+    <div [hidden]="submitted" style="width: 600px;">
+        <form (ngSubmit)="onSubmit()">
+            <h2>Planifier / Modifier une manifestation</h2>
+            <br>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="animation">Label de l'animation :</label>
+                            <input type="text" name="animation" class="form-control" id="animation" required
+                                [(ngModel)]="manifestation.animation.label" [value]="animation.id" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="label">Label :</label>
+                            <input type="text" name="label" class="form-control" id="label"
+                                placeholder="Entrer votre label" [(ngModel)]="manifestation.label" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateValidation">Date de validation :</label>
+                            <input type="date" name="dateValidation" class="form-control" id="dateValidation"
+                                placeholder="Entrer la date de validation" required
+                                [(ngModel)]="manifestation.dateValidation" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="validateur">Nom du validateur :</label>
+                            <input type="text" name="validateur" class="form-control" id="validateur"
+                                placeholder="{{manifestation.validateur.nom}}" readonly>
+                        </div>
+
+                    </div>
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="salle">Choix de salle :</label>
+                            <select name="salle" id="salle" [(ngModel)]="manifestation.salle.id" class="form-control">
+                                <option *ngFor="let salle of salles" [value]="salle.id">{{salle.label}}</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateDebut">Date de debut :</label>
+                            <input type="date" name="dateDebut" class="form-control" id="dateDebut"
+                                placeholder="Entrer la date de debut " required [(ngModel)]="manifestation.dateDebut">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateFin">Date de fin :</label>
+                            <input type="date" name="dateFin" class="form-control" id="dateFin"
+                                placeholder="Entrer la date de fin " [(ngModel)]="manifestation.dateFin">
+                        </div>
+
+                        <div class="form-group">
+                            <label for=" nbreSpectateursPrevus">Prevision Spectateurs :</label>
+                            <input type="text" name="nbreSpectateursPrevus" class="form-control"
+                                id="nbreSpectateursPrevus" placeholder="Entrer la prevision de Spectateurs"
+                                [(ngModel)]="manifestation.animation.nbreSpectateursPrevus">
+                        </div>
+
+                    </div>
+
+                </div>
+                <br>
+
+                <a name="" id="" class="btn btn-secondary" href="#" role="button"
+                    [routerLink]="['/public/manifestation-list']">
+                    <fa-icon class="icon p-2" [icon]="faHome">Annuler</fa-icon>
+                </a>
+                &nbsp;
+                <button type="submit" class="btn btn-success">
+                    <fa-icon class="icon p-2" [icon]="faCheckSquare">Valider</fa-icon>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

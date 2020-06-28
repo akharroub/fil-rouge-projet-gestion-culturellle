@@ -1,0 +1,127 @@
+<div class="row justify-content-center align-items-center">
+    <div [hidden]="submitted" style="width: 400px;">
+
+        <form>
+            <h2>Inviter des Vips</h2>
+
+            <br>
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-6">
+
+                        <div class="form-group">
+                            <label for="manifestation">Manifestation :</label>
+                            <input type="text" name="manifestation" class="form-control" id="manifestation"
+                                [(ngModel)]="manifestationDto.label" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateDebut">Date de début :</label>
+                            <input type="text" name="dateDebut" class="form-control" id="dateDebut"
+                                [(ngModel)]="manifestationDto.dateDebut" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dateFin">Date de fin :</label>
+                            <input type="text" name="dateFin" class="form-control" id="dateFin"
+                                [(ngModel)]="manifestationDto.dateFin" readonly>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="reservationsVip">Nbre de Vips à inviter :</label>
+                            <input type="text" name="reservationsVip" class="form-control" id="reservationsVip"
+                                [(ngModel)]="manifestationDto.reservationsVip" readonly>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-5">
+                        <div class="panel-body">
+                            <table class="table table-striped ">
+                                <thead class="thead-dark">
+                                    <tr>
+                                        <th>Nom</th>
+                                        <th>Prenom</th>
+                                        <th>Email</th>
+                                        <th *ngIf="addInvites">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let invite of invites" style="border:1px solid black;">
+
+                                        <td>{{invite.nom}}</td>
+                                        <td>{{invite.prenom}}</td>
+                                        <td>{{invite.email}}</td>
+                                        <td *ngIf="addInvites"><button (click)="addInvitation(invite.id)" class="btn btn-primary">
+                                                <fa-icon class="icon p-2" [icon]="faPlusSquare">Ajouter</fa-icon>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row justify-content-center">
+
+                            <div class="col-5">
+                                <div class="panel-body">
+                                    <table *ngIf="subInvites" class="table table-striped  ">
+                                        <thead class="thead-dark">
+                                            <tr>
+                                                <th>Nom</th>
+                                                <th>Prenom</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr *ngFor="let invit of invitations"  style="border:1px solid black;">
+
+                                                <td>{{invit.vip.nom}}</td>
+                                                <td>{{invit.vip.prenom}}</td>
+                                                <td>{{invit.vip.email}}</td>
+                                                
+                                                <td> <button (click)="subInvitation(invit.id)"
+                                                        class="btn btn-secondary">
+                                                        <fa-icon class="icon p-2" [icon]="faMinusSquare">Retirer
+                                                        </fa-icon>
+                                                    </button></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  <a name="" id="" class="btn btn-secondary" href="#" role="button"
+            [routerLink]="['/public/manifestation-list']" title="Annuler">
+            <fa-icon class="icon p-2" [icon]="faHome" >Annuler</fa-icon>
+        </a> -->
+            <button class="btn btn-secondary" type="button" value="Annuler" (click)="cancel()" title="Annuler">
+                <fa-icon class="icon p-2" [icon]="faHome">Valider</fa-icon>
+            </button>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            &nbsp;
+            <button class="btn btn-success" type="button" value="Valider" (click)="valid()" title="Valider">
+                <fa-icon class="icon p-2" [icon]="faCheckSquare">Valider</fa-icon>
+            </button>
+        </form>
+    </div>
+</div>

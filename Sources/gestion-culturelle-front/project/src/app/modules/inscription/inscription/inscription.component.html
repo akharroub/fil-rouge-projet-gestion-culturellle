@@ -1,0 +1,73 @@
+<div class="row justify-content-center align-items-center">
+
+	<div [hidden]="submitted" style="width: 400px;">
+		<br>
+		<h2>Ajouter un nouveau client</h2>
+		<br>
+		<div [hidden]="submitted">
+			<div class="container">
+				<div class="registration mx-auto d-block w-100">
+					<div class="page-header text-center">
+					</div>
+
+					<form id="member-registration"
+						action="/astroidnew/index.php/pages/register?task=registration.register" method="post"
+						class="form-validate form-horizontal well" enctype="multipart/form-data">
+						<fieldset>
+							<br>
+							<div class="container">
+								<div class="row justify-content-center">
+									<div class="col-8">
+										<div class="form-group">
+											<label for="nom">Nom (Login) *</label>
+											<input [(ngModel)]="user.nom" name="nom" type="text" class="form-control"
+												id="nom">
+										</div>
+										<div class="form-group">
+											<label for="prenom">Prenom *</label>
+											<input [(ngModel)]="user.prenom" name="prenom" type="text"
+												class="form-control" id="eprenom">
+										</div>
+										<div class="form-group">
+											<label for="password">Mot de passe *</label>
+											<input [(ngModel)]="user.password" name="password" type="password"
+												class="form-control" id="password">
+										</div>
+									</div>
+									<div class="col-8">
+										<div class="form-group">
+											<label for="password1">Confirmez le mot de passe *</label>
+											<input type="password" name="password1" class="form-control" id="password1">
+										</div>
+
+										<div class="form-group">
+											<label for="email">Email *</label>
+											<input [(ngModel)]="user.email" name="email" type="email"
+												class="form-control" id="email">
+										</div>
+										<div class="form-group">
+											<label for="address">Addresse *</label>
+											<input [(ngModel)]="user.adresse" name="address" type="address"
+												class="form-control" id="address">
+										</div>
+									</div>
+								</div>
+							</div>
+						</fieldset>
+
+						<br>
+						<a name="" id="" class="btn btn-secondary" role="button" [routerLink]="['/public/login']">
+							<fa-icon class="icon p-2" [icon]="faHome">Annuler</fa-icon>
+						</a>
+						&nbsp;
+						<button (click)="add()" type="submit" class="btn btn-primary">
+							<fa-icon class="icon p-2" [icon]="faPlusSquare">Ajouter</fa-icon>
+						</button>
+
+
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
